@@ -1,0 +1,36 @@
+---
+- name: 阿里巴巴
+  en: Alibaba Group
+  url: https://www.alibabagroup.com
+  logo: "/assets/img/collab/alibaba.png"
+- name: 蚂蚁集团
+  en: Ant Group
+  url: https://www.antgroup.com
+  logo: "/assets/img/collab/ant.svg"
+- name: 斯坦福大学
+  en: Stanford University
+  url: https://www.stanford.edu
+  logo: "/assets/img/collab/stanford.png"
+- name: 南洋理工大学
+  en: Nanyang Technological University
+  url: https://www.ntu.edu.sg
+  logo: "/assets/img/collab/ntu.png"
+- name: 伍斯特理工学院
+  en: Worcester Polytechnic Institute
+  url: https://www.wpi.edu
+  logo: "/assets/img/collab/wpi.png"
+  logo_padded: true
+- name: 武汉大学
+  en: Wuhan University
+  url: https://www.whu.edu.cn
+  logo: "/assets/img/collab/whu.png"
+  logo_light: true
+- name: 北京大学
+  en: Peking University
+  url: https://www.pku.edu.cn
+  logo: "/assets/img/collab/pku.png"
+- name: 华东师范大学
+  en: East China Normal University
+  url: https://www.ecnu.edu.cn
+  logo: "/assets/img/collab/ecnu.svg"
+  logo_light: true

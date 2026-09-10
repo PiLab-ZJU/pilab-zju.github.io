@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PiLab favicon">
+  <title>PiLab</title>
+  <desc>
+    Favicon variant of the PiLab mark, tuned for 16 px.
+    Same pi construction as logo-mark.svg, simplified for tiny sizes:
+    strokes thickened from 8 to 10, gradient removed (flat inks only),
+    and the trail reduced to a single dot.
+  </desc>
+  <!-- crossbar + left leg -->
+  <path d="M 11 50 L 11 19 L 35 19" fill="none" stroke="#1450A3" stroke-width="10" />
+  <!-- right leg with a short curl -->
+  <path d="M 35 14 L 35 31 A 9 9 0 0 0 44 40" fill="none" stroke="#1450A3" stroke-width="10" />
+  <!-- one trailing dot, kept large enough to survive 16 px -->
+  <circle cx="52" cy="40" r="4.5" fill="#4A7FD4" />
+</svg>

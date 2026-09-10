@@ -1,0 +1,66 @@
+# PiLab 站点配置
+# 维护手册见 README.md —— 日常更新请改 _data/*.yml 或新增 _news/ _papers/ 下的 Markdown，无需动代码
+
+title: PiLab
+tagline: 公共信息 × 公共智能
+email: jiangzhuoren@zju.edu.cn
+description: >-
+  PiLab（π Lab）依托浙江大学公共管理学院信息资源管理系，以社会媒体、学术文献、
+  政策文本等公共信息为研究对象，发展基于大语言模型与图学习的方法，
+  回应数字治理与社会计算中的现实问题。
+
+url: "https://pilab-zju.github.io"
+baseurl: ""
+lang: zh-CN
+
+# ── 集合 ────────────────────────────────────────────
+collections:
+  papers:
+    output: true
+    permalink: /papers/:title/
+  news:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: papers
+    values:
+      layout: paper
+
+# ── 构建 ────────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+sass: {}
+
+exclude:
+  - docs/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .gitignore
+  - "*.log"
+  - .jekyll-cache/
+  - .sass-cache/
+  - _site/
+  - scripts/
+  - .ruby-version
+  - AGENTS.md
+  - assets/img/logo-preview.html
+  - team/members.md
+  - team/*.jpg
+  - team/*.png
+  - retro_specimen.swift
+  - 复古字体样张.pdf
+  - .github/
+  - .claude/
+  - .shots/
+  - .bundle/
+  - .git/
+  - .env
+  - .env.*
+  - _private/
+
+plugins: []

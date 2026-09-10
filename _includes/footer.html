@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <a class="brand" href="{{ '/' | relative_url }}"><img class="brand-mark" src="{{ '/assets/img/logo-mark.svg' | relative_url }}" alt=""><span class="brand-name">Pi<span class="brand-accent">Lab</span></span></a>
+      <a class="footer-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <div class="footer-links">
+        <a href="https://github.com/PiLab-ZJU" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://huggingface.co/PiLabZJU" target="_blank" rel="noopener">Hugging Face ↗</a>
+      </div>
+    </div>
+    <p class="footer-org">{{ site.data.settings.org.university }} · {{ site.data.settings.org.school }}</p>
+    <div class="footer-bottom"><span>© {{ site.time | date: '%Y' }} PiLab</span><span>Design inspired by <a href="https://bedford.io/" target="_blank" rel="noopener">Bedford Lab</a></span></div>
+  </div>
+</footer>

@@ -1,0 +1,8 @@
+{%- assign link_url = include.url | default: '' | strip -%}
+{%- assign first_char = link_url | slice: 0, 1 -%}
+{%- assign first_two = link_url | slice: 0, 2 -%}
+{%- if first_char == '/' and first_two != '//' -%}
+  {{- link_url | relative_url -}}
+{%- else -%}
+  {{- link_url -}}
+{%- endif -%}

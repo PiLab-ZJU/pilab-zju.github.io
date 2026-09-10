@@ -1,0 +1,51 @@
+---
+org:
+  university: 浙江大学
+  school: 公共管理学院 · 信息资源管理系
+  site: https://www.zju.edu.cn
+  logo: "/assets/img/zju.svg"
+hero:
+  eyebrow: 浙江大学公共管理学院 · 信息资源管理系
+  title: PiLab
+  description: 以公共信息为研究对象，以人工智能为方法，探索技术与社会的交汇。
+  subtitle: 公共信息 × 公共智能
+  meanings:
+  - key: Public Information
+    zh: 公共信息
+    desc: 从社交媒体、学术文献到公共政策，理解社会中的信息。
+  - key: Public Intelligence
+    zh: 公共智能
+    desc: 以大语言模型、图学习等方法，回应复杂的社会问题。
+  - key: "/pi"
+    code: true
+    zh: 无限不循环
+    desc: 无限不循环，象征对科研未知的持续探索。
+  buttons:
+  - label: GitHub
+    url: https://github.com/PiLab-ZJU
+    style: ghost
+    icon: github
+  - label: Hugging Face
+    url: https://huggingface.co/PiLabZJU
+    style: ghost
+    icon: hf
+  - label: 加入我们
+    url: "/team/#join"
+    style: primary
+    icon:
+  - label: 联系我们
+    url: mailto:jiangzhuoren@zju.edu.cn
+    style: ghost
+    icon: mail
+nav:
+- label: News
+  url: "/news/"
+- label: Papers
+  url: "/papers/"
+- label: Projects
+  url: "/projects/"
+- label: Team
+  url: "/team/"
+footer:
+  about: PiLab（π Lab）致力于公共信息挖掘与公共智能构建， 让前沿算法在社会现实中产生真实价值。
+  note: 基于 Jekyll 构建，设计灵感与内容架构来自开源项目 bedford.io（blab/blotter, MIT License）。

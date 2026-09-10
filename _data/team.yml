@@ -1,0 +1,109 @@
+---
+advisor:
+  name: 蒋卓人
+  name_en: Zhuoren Jiang
+  title: 长聘副教授 · 博士生导师
+  role: 浙江大学信息资源管理研究所所长
+  photo: "/assets/img/team/advisor.jpg"
+  photo_source: https://person.zju.edu.cn/0020027
+  bio: 博士，浙江大学公共管理学院长聘副教授、博士生导师，浙江大学信息资源管理研究所所长。 研究方向为信息资源管理、数字治理与人工智能，致力于以大语言模型、图学习等方法
+    挖掘公共信息的价值，相关成果发表于 AAAI、IP&M、PNAS Nexus 等国际期刊与会议。
+  links:
+  - label: 浙大主页
+    url: https://person.zju.edu.cn/0020027
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=GNkq4n8AAAAJ
+  - label: Email
+    url: mailto:jiangzhuoren@zju.edu.cn
+partners:
+- name: 言鹏韦
+  name_en: Pengwei Yan
+  role: 企业联合培养博士后
+  photo: "/assets/img/team/ypw.jpg"
+  keywords:
+  - 大语言模型
+  - AI4Med
+  homepage: ''
+- name: 姚汝婧
+  role: Research Scientist
+  photo: "/assets/img/team/yrj.jpg"
+  keywords:
+  - 大模型
+  - 数据挖掘
+  - 隐私保护
+  homepage: ''
+- name: 史宇飞
+  role: Research Associate
+  photo: "/assets/img/team/syf.jpg"
+  keywords:
+  - 大模型
+  - 自然语言处理
+  - 强化学习
+  homepage: ''
+students:
+- name: 袁伟康
+  degree: 博士研究生
+  year: 2022
+  photo: "/assets/img/team/ywk.jpg"
+  keywords:
+  - 计算社会科学
+  - 知识服务
+  homepage: ''
+- name: 林晨曦
+  degree: 博士研究生
+  year: 2024
+  photo: "/assets/img/team/lcx.jpg"
+  keywords:
+  - 计算社会科学
+  - AI for Social Science
+  homepage: ''
+- name: 张予捷
+  degree: 博士研究生
+  year: 2026
+  photo: "/assets/img/team/zyj.jpg"
+  keywords:
+  - 计算社会科学
+  - 个性化
+  homepage: ''
+- name: 包易云
+  degree: 硕士研究生
+  year: 2026
+  photo: "/assets/img/team/byy.jpg"
+  keywords:
+  - 计算社会科学
+  homepage: ''
+- name: 王雯琪
+  degree: 硕士研究生
+  year: 2025
+  photo: "/assets/img/team/wwq.jpg"
+  keywords:
+  - 人机交互
+  - 用户行为研究
+  homepage: ''
+- name: 张锐涛
+  degree: 硕士研究生
+  year: 2024
+  photo: "/assets/img/team/zrt.jpg"
+  keywords:
+  - 社交媒体
+  - 算法治理
+  homepage: ''
+alumni:
+- name: 林田谦谨
+  grad: '2026.06'
+  destination: 阿里巴巴 ATH Token Foundary 事业部
+  role: AIGC 算法工程师
+- name: 言鹏韦
+  grad: '2026.06'
+  destination: 蚂蚁集团蚂蚁健康事业部（蚂蚁星）
+  role: MedLLM 算法工程师
+- name: 汪子航
+  grad: '2024.06'
+  destination: 一线城市公职单位
+join:
+  intro: 我们长期欢迎对「AI × 社会科学」交叉方向感兴趣的同学加入。 无论你未来走向学界还是业界，实验室都会提供同等的支持与训练。
+  points:
+  - 研究方向：大语言模型、图学习、社会计算、数字治理（欢迎计算机、信息管理、公共管理等背景）
+  - 研究生：请通过浙江大学研究生招生系统报考信息资源管理专业，欢迎提前邮件联系
+  - 本科生：欢迎加入科研训练 / 毕业设计，请附简历与成绩单邮件联系
+  email: jiangzhuoren@zju.edu.cn

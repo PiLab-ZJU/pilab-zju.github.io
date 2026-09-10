@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PiLab logo mark">
+  <title>PiLab</title>
+  <desc>
+    PiLab mark: the Greek letter pi built from pure geometry, no font glyphs.
+    One crossbar and two legs. The right leg flows into a quarter arc whose
+    stroke fades, then breaks free into two shrinking dots: 3.14159...
+    infinite, never repeating. The left leg stays planted: rigor and grounding.
+    Palette (blues only): #1450A3 ink, #4A7FD4 flow, white for reversed use.
+    Reverse usage: inline this SVG in HTML and override the CSS variables on
+    the svg element, e.g. style="--pi-ink:#FFFFFF; --pi-flow:rgba(255,255,255,.55)"
+  </desc>
+  <style>
+    :root { --pi-ink: #1450A3; --pi-flow: #4A7FD4; }
+    .pi-ink { stroke: var(--pi-ink, #1450A3); }
+    .pi-arc { stroke: url(#piGrad); }
+    .pi-stop-a { stop-color: var(--pi-ink, #1450A3); }
+    .pi-stop-b { stop-color: var(--pi-flow, #4A7FD4); }
+    .pi-dot { fill: var(--pi-flow, #4A7FD4); }
+    .pi-dot-fade { fill: var(--pi-flow, #4A7FD4); opacity: .5; }
+  </style>
+  <defs>
+    <linearGradient id="piGrad" gradientUnits="userSpaceOnUse" x1="34" y1="42" x2="43" y2="42">
+      <stop offset="0" class="pi-stop-a" stop-color="#1450A3" />
+      <stop offset="1" class="pi-stop-b" stop-color="#4A7FD4" />
+    </linearGradient>
+  </defs>
+  <!-- crossbar + left leg, rectilinear strokes, sharp academic corners -->
+  <path class="pi-ink" d="M 12 49 L 12 20 L 34 20" fill="none" stroke="#1450A3" stroke-width="8" />
+  <!-- right leg dissolving into a quarter arc, ink fading to flow blue -->
+  <path class="pi-arc" d="M 34 16 L 34 34 A 8 8 0 0 0 42 42" fill="none" stroke="url(#piGrad)" stroke-width="8" />
+  <!-- trailing dots: the digits of pi go on forever -->
+  <circle class="pi-dot" cx="47.5" cy="42" r="3.5" fill="#4A7FD4" />
+  <circle class="pi-dot-fade" cx="54.5" cy="42" r="2.25" fill="#4A7FD4" />
+</svg>

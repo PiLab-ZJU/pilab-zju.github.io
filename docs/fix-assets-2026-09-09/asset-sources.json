@@ -1,0 +1,69 @@
+[
+  {
+    "file": "assets/img/team/advisor.jpg",
+    "source": "https://person.zju.edu.cn/0020027",
+    "asset_url": "https://person.zju.edu.cn/person//attachments/2026-08/0808010004-1074906750.jpg",
+    "bytes": 6481,
+    "verified_on": "2026-09-09"
+  },
+  {
+    "file": "assets/img/collab/alibaba.png",
+    "source": "https://www.alibabagroup.com",
+    "asset_url": "Embedded logo in official homepage",
+    "bytes": 9146,
+    "verified_on": "2026-09-09"
+  },
+  {
+    "file": "assets/img/collab/ntu.png",
+    "source": "https://www.ntu.edu.sg",
+    "asset_url": "https://www.ntu.edu.sg/ResourcePackages/NTU/assets/images/NTU_Logo.png",
+    "bytes": 357899,
+    "verified_on": "2026-09-09"
+  },
+  {
+    "file": "assets/img/collab/whu.png",
+    "source": "https://www.whu.edu.cn",
+    "asset_url": "https://www.whu.edu.cn/new2024/js/logo.png",
+    "bytes": 98197,
+    "verified_on": "2026-09-09"
+  },
+  {
+    "file": "assets/img/collab/wpi.png",
+    "asset_url": "https://www.wpi.edu/sites/default/files/inline-image/Offices/Marketing-Communications/WPI_Inst_Prim_FulClr.png",
+    "bytes": 624303,
+    "verified_on": "2026-09-09"
+  },
+  {
+    "file": "assets/img/collab/pku.png",
+    "asset_url": "https://www.pku.edu.cn/pku_logo_red.png",
+    "bytes": 25869,
+    "verified_on": "2026-09-09"
+  },
+  {
+    "file": "assets/img/collab/stanford.png",
+    "asset_url": "https://www.stanford.edu/icon1.png?icon1.2k3tekyi17a_q.png?dpl=892df106a1299f967cb802cc3e27c16a2d2a0441134fb0ca4f2a5b456fe8f7bf366139616438646537356438356330303038663165636432",
+    "bytes": 15035,
+    "verified_on": "2026-09-09"
+  },
+  {
+    "file": "assets/img/collab/ant.svg",
+    "source": "https://www.antgroup.com",
+    "asset_url": "https://gw.alipayobjects.com/zos/bmw-prod/bb9478cb-76f2-41b1-863a-a35322f9e85d.svg",
+    "bytes": 5186,
+    "verified_on": "2026-09-09"
+  },
+  {
+    "file": "assets/img/collab/ecnu.svg",
+    "source": "https://www.ecnu.edu.cn",
+    "asset_url": "https://www.ecnu.edu.cn/images/logo.svg",
+    "bytes": 23562,
+    "verified_on": "2026-09-09"
+  },
+  {
+    "file": "assets/img/zju.svg",
+    "source": "https://www.zju.edu.cn",
+    "asset_url": "https://www.zju.edu.cn/_upload/tpl/0b/bf/3007/template3007/static/media/mlogo.66388675484ae2a807b2ad65b1d31ca9.svg",
+    "bytes": 29387,
+    "verified_on": "2026-09-09"
+  }
+]

@@ -1,0 +1,36 @@
+---
+layout: default
+title: News
+description: PiLab 的各类动态——论文发表、项目更新、学术活动与团队生活。
+---
+
+<div class="page-hero">
+  <div class="container">
+    <h1>News</h1>
+    <p>研究进展、学术交流与团队生活。</p>
+  </div>
+</div>
+
+<div class="page-body">
+  <div class="container">
+    {% assign public_news = site.news | where_exp: "n", "n.published != false" %}
+    {% assign news_groups = public_news | sort: "date" | reverse | group_by_exp: "n", "n.date | date: '%Y'" %}
+    {% for group in news_groups %}
+      <div class="news-year"><h2>{{ group.name }}</h2></div>
+      {% for n in group.items %}
+      <div class="news-item">
+        <time class="news-date" datetime="{% if n.date_precision == 'month' %}{{ n.date | date: '%Y-%m' }}{% else %}{{ n.date | date: '%Y-%m-%d' }}{% endif %}">{% if n.date_precision == 'month' %}{{ n.date | date: '%m' }} 月{% else %}{{ n.date | date: '%m-%d' }}{% endif %}</time>
+        <span class="badge badge-{{ n.category }}">{{ n.label }}</span>
+        <div class="news-content">
+          {% assign news_link = n.link | default: '' | strip %}
+          {% if news_link != '' %}<a class="news-title" href="{% include url.html url=news_link %}" {% if news_link contains 'http' %}target="_blank" rel="noopener"{% endif %}>{{ n.title }}</a>
+          {% else %}<span class="news-title">{{ n.title }}</span>{% endif %}
+          {% if n.desc %}<div class="news-desc">{{ n.desc }}</div>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p class="empty-state">新的团队动态将在这里与你分享。</p>
+    {% endfor %}
+  </div>
+</div>

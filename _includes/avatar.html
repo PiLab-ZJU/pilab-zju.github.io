@@ -1,0 +1,6 @@
+{%- assign photo = include.person.photo | default: '' | strip -%}
+{%- if photo != '' -%}
+  <img src="{{ photo | relative_url }}" alt="{{ include.person.name | escape }}" loading="lazy" decoding="async">
+{%- else -%}
+  <span aria-hidden="true">{{ include.person.name | slice: 0 | escape }}</span>
+{%- endif -%}

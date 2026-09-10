@@ -1,0 +1,93 @@
+---
+layout: default
+title: Team
+description: PiLab 的团队成员——导师、博士研究生、硕士研究生、科研伙伴与已毕业学生。
+---
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Team</h1>
+    <p>一群相信「公共信息 × 公共智能」的人。</p>
+  </div>
+</div>
+
+<div class="page-body">
+  <div class="container">
+
+    {% assign adv = site.data.team.advisor %}
+    <!-- ============ 导师 ============ -->
+    <div class="team-block">
+      <h2 class="team-block-title">导师 <span class="en">Principal Investigator</span></h2>
+      <div class="advisor-card">
+        <div class="advisor-photo">
+          {% include avatar.html person=adv %}
+        </div>
+        <div>
+          <h3 class="advisor-name">{{ adv.name }}<span class="en">{{ adv.name_en }}</span></h3>
+          <p class="advisor-title">{{ adv.title }}</p>
+          <p class="advisor-role">{{ adv.role }}</p>
+          <p class="advisor-bio">{{ adv.bio }}</p>
+          <div class="link-chips">
+            {% for l in adv.links %}
+            <a class="chip" href="{% include url.html url=l.url %}" {% if l.url contains 'http' %}target="_blank" rel="noopener"{% endif %}>{{ l.label }} ↗</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% assign students = site.data.team.students | where_exp: "m", "m.published != false" %}
+    {% assign student_groups = students | group_by: 'degree' %}
+    {% for group in student_groups %}
+    <div class="team-block">
+      <h2 class="team-block-title">{{ group.name | default: '在读学生' | escape }} <span class="en">{% if group.name == '博士研究生' %}PhD Students{% elsif group.name == '硕士研究生' %}Master’s Students{% else %}Students{% endif %} · {{ group.items | size }}</span></h2>
+      <div class="people-grid">
+        {% for member in group.items %}
+        {% include person-card.html person=member %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% assign partners = site.data.team.partners | where_exp: "m", "m.published != false" %}
+    {% if partners.size > 0 %}
+    <div class="team-block">
+      <h2 class="team-block-title">科研伙伴 <span class="en">Research Partners · {{ partners | size }}</span></h2>
+      <div class="people-grid">
+        {% for member in partners %}
+        {% include person-card.html person=member %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ============ 荣休学生 ============ -->
+    <div class="team-block">
+      <h2 class="team-block-title">已毕业学生 <span class="en">Alumni</span></h2>
+      <div class="alumni-list">
+        {% assign alumni = site.data.team.alumni | where_exp: "member", "member.published != false" | sort: 'grad' | reverse %}
+        {% for a in alumni %}
+        <div class="alumni-row">
+          <span class="alumni-name">{{ a.name }}</span>
+          <span class="alumni-grad">{{ a.grad }} 毕业</span>
+          <div class="alumni-dest">{{ a.destination | escape }}{% if a.role %}<span class="alumni-role">{{ a.role | escape }}</span>{% endif %}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- ============ 加入我们 ============ -->
+    <div class="team-block" style="margin-bottom: 0;">
+      <h2 class="team-block-title">加入我们 <span class="en">Join Us</span></h2>
+      <div class="join-card" id="join">
+        <h3>期待与你一起做有意思的研究</h3>
+        <p>{{ site.data.team.join.intro }}</p>
+        <ul class="join-list">
+          {% for pt in site.data.team.join.points %}<li>{{ pt }}</li>{% endfor %}
+        </ul>
+        <a class="btn btn-primary" href="mailto:{{ site.data.team.join.email }}">发送邮件联系</a>
+      </div>
+    </div>
+
+  </div>
+</div>

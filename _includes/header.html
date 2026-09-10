@@ -1,0 +1,28 @@
+<header class="site-header">
+  <div class="container nav-bar">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img class="brand-mark" src="{{ '/assets/img/logo-mark.svg' | relative_url }}" alt="PiLab logo">
+      <span class="brand-name">Pi<span class="brand-accent">Lab</span></span>
+    </a>
+
+    <nav class="nav-menu" id="site-navigation" aria-label="主导航">
+      {% for item in site.data.settings.nav %}
+      {% assign prefix_length = item.url | size %}
+      {% assign page_prefix = page.url | slice: 0, prefix_length %}
+      {% assign active = false %}
+      {% if item.url == page.url %}{% assign active = true %}{% elsif item.url != '/' and page_prefix == item.url %}{% assign active = true %}{% endif %}
+      <a class="nav-link {% if active %}is-active{% endif %}" href="{{ item.url | relative_url }}" {% if active %}aria-current="{% if item.url == page.url %}page{% else %}location{% endif %}"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="nav-side">
+      <a class="zju-mark" href="{{ site.data.settings.org.site }}" target="_blank" rel="noopener" title="{{ site.data.settings.org.university }}">
+        {% assign org_logo = site.data.settings.org.logo | default: '' | strip %}
+        {% if org_logo != '' %}<img src="{{ org_logo | relative_url }}" alt="{{ site.data.settings.org.university }}" width="98" height="28">{% else %}{{ site.data.settings.org.university }}{% endif %}
+      </a>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-controls="site-navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

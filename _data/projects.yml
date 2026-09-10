@@ -1,0 +1,54 @@
+---
+github:
+- name: AlignSurvey
+  published: true
+  desc: 面向社会调查全流程的基准与工具，支持角色建模、半结构访谈、态度立场与问卷作答。
+  url: https://github.com/PiLab-ZJU/AlignSurvey
+  date: 2025-11-14
+  date_kind: updated
+  tags:
+  - Benchmark
+  - LLM
+  - AAAI 2026
+  source: https://github.com/PiLab-ZJU/AlignSurvey
+huggingface:
+- name: AlignSurvey_Datasets
+  published: true
+  desc: 社会调查语料与全流程评测数据，配套 AlignSurvey 基准。
+  url: https://huggingface.co/datasets/PiLabZJU/AlignSurvey_Datasets
+  date: 2025-11-10
+  date_kind: updated
+  tags:
+  - Dataset
+  - Alignment
+  source: https://huggingface.co/datasets/PiLabZJU/AlignSurvey_Datasets
+- name: AlignSurvey-Llama-3.1-8B
+  published: true
+  desc: AlignSurvey 配套的社会调查模型，基于 Llama-3.1-8B，用于人类偏好对齐研究。
+  url: https://huggingface.co/PiLabZJU/AlignSurvey-Llama-3.1-8B
+  date: 2026-07-27
+  date_kind: updated
+  tags:
+  - Model
+  - Alignment
+  source: https://huggingface.co/PiLabZJU/AlignSurvey-Llama-3.1-8B
+- name: AlignSurvey-Mistral-7B
+  published: true
+  desc: AlignSurvey 配套的社会调查模型，基于 Mistral-7B，用于人类偏好对齐研究。
+  url: https://huggingface.co/PiLabZJU/AlignSurvey-Mistral-7B
+  date: 2025-11-12
+  date_kind: updated
+  tags:
+  - Model
+  - Alignment
+  source: https://huggingface.co/PiLabZJU/AlignSurvey-Mistral-7B
+- name: AlignSurvey-Qwen2.5-7B
+  published: true
+  desc: AlignSurvey 配套的社会调查模型，基于 Qwen2.5-7B，用于人类偏好对齐研究。
+  url: https://huggingface.co/PiLabZJU/AlignSurvey-Qwen2.5-7B
+  date: 2026-07-27
+  date_kind: updated
+  tags:
+  - Model
+  - Alignment
+  source: https://huggingface.co/PiLabZJU/AlignSurvey-Qwen2.5-7B

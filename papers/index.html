@@ -1,0 +1,46 @@
+---
+layout: default
+title: Papers
+description: PiLab 的论文发表情况，按发表时间倒序排列。
+---
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Papers</h1>
+    <p>团队的研究成果，按发表时间倒序排列。点击标题查看研究简介与原文。</p>
+  </div>
+</div>
+
+<div class="page-body">
+  <div class="container">
+    {% assign public_papers = site.papers | where_exp: "p", "p.published != false" %}
+    {% assign paper_groups = public_papers | sort: "date" | reverse | group_by_exp: "p", "p.date | date: '%Y'" %}
+    {% for group in paper_groups %}
+      <div class="paper-year">
+        <h2>{{ group.name }}</h2>
+        <span class="count">{{ group.items | size }} 篇</span>
+      </div>
+      {% for p in group.items %}
+      <div class="paper-row">
+        <h3 class="paper-row-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+        {% if p.authors %}
+        <p class="paper-row-authors">
+          {% for a in p.authors %}{% if a == "蒋卓人" or a == "Zhuoren Jiang" %}<strong class="me">{{ a }}</strong>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
+        </p>
+        {% endif %}
+        <div class="paper-row-foot">
+          {% if p.venue %}<span class="paper-venue-tag">{{ p.venue }}</span>{% endif %}
+          {% if p.status %}<span class="badge">{{ p.status }}</span>{% endif %}
+          <div class="paper-links">
+            {% for l in p.links %}
+            <a class="chip" href="{% include url.html url=l.url %}" {% if l.url contains 'http' %}target="_blank" rel="noopener"{% endif %}>{{ l.label }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p class="empty-state">研究成果正在整理中，敬请关注。</p>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% capture document_title %}{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}{% endcapture %}
+  {% assign document_description = page.description | default: page.summary | default: site.description | strip_html | normalize_whitespace | truncate: 160 %}
+  <title>{{ document_title | escape }}</title>
+  <meta name="description" content="{{ document_description | escape }}">
+  <meta property="og:title" content="{{ document_title | escape }}">
+  <meta property="og:description" content="{{ document_description | escape }}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:type" content="{% if page.collection == 'papers' %}article{% else %}website{% endif %}">
+  <meta name="twitter:card" content="summary">
+  {% if site.url != '' %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  {% endif %}
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到正文</a>
+  {% include header.html %}
+  <main id="main" tabindex="-1">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script>
+    // 移动端导航
+    (function () {
+      var btn = document.querySelector('.nav-toggle');
+      var menu = document.querySelector('.nav-menu');
+      if (!btn || !menu) return;
+      function setOpen(open) {
+        menu.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+      }
+      btn.addEventListener('click', function () {
+        setOpen(btn.getAttribute('aria-expanded') !== 'true');
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+          setOpen(false);
+          btn.focus();
+        }
+      });
+      document.addEventListener('click', function (event) {
+        if (!menu.contains(event.target) && !btn.contains(event.target)) setOpen(false);
+      });
+      menu.addEventListener('click', function (event) {
+        if (event.target.closest('a')) setOpen(false);
+      });
+      window.matchMedia('(max-width: 640px)').addEventListener('change', function () { setOpen(false); });
+    })();
+  </script>
+</body>
+</html>
