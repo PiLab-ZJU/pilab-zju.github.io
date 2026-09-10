@@ -28,6 +28,7 @@ description: PiLab 的团队成员——导师、博士研究生、硕士研究�
           <p class="advisor-role">{{ adv.role }}</p>
           <p class="advisor-bio">{{ adv.bio }}</p>
           <div class="link-chips">
+            {% include scholar-link.html person=adv %}
             {% for l in adv.links %}
             <a class="chip" href="{% include url.html url=l.url %}" {% if l.url contains 'http' %}target="_blank" rel="noopener"{% endif %}>{{ l.label }} ↗</a>
             {% endfor %}
@@ -68,7 +69,7 @@ description: PiLab 的团队成员——导师、博士研究生、硕士研究�
         {% assign alumni = site.data.team.alumni | where_exp: "member", "member.published != false" | sort: 'grad' | reverse %}
         {% for a in alumni %}
         <div class="alumni-row">
-          <span class="alumni-name">{{ a.name }}</span>
+          <span class="alumni-name">{{ a.name }} {% include scholar-link.html person=a %}</span>
           <span class="alumni-grad">{{ a.grad }} 毕业</span>
           <div class="alumni-dest">{{ a.destination | escape }}{% if a.role %}<span class="alumni-role">{{ a.role | escape }}</span>{% endif %}</div>
         </div>

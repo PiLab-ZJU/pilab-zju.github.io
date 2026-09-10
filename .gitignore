@@ -18,3 +18,5 @@ team/*.png
 retro_specimen.swift
 复古字体样张.pdf
 docs/**/*.png
+__pycache__/
+*.pyc

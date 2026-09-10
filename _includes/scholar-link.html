@@ -1,0 +1,4 @@
+{%- assign person_source = site.data.people_sources[include.person.name] -%}
+{%- if person_source.scholar -%}
+<a class="scholar-link" href="{{ person_source.scholar | escape }}" target="_blank" rel="noopener" aria-label="{{ include.person.name | escape }}的 Google Scholar 主页" title="Google Scholar">{% include brand-icon.html brand='google-scholar' %}<span class="scholar-label">Scholar</span></a>
+{%- endif -%}

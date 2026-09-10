@@ -1,0 +1,10 @@
+{%- assign paper_end_year = site.time | date: '%Y' | plus: 0 -%}
+{%- assign paper_year_count = site.paper_years | default: 3 -%}
+{%- assign paper_start_year = paper_end_year | minus: paper_year_count | plus: 1 -%}
+{%- assign public_papers = '' | split: '' -%}
+{%- for paper in site.papers -%}
+  {%- assign paper_year = paper.date | date: '%Y' | plus: 0 -%}
+  {%- if paper.published != false and paper_year >= paper_start_year and paper_year <= paper_end_year -%}
+    {%- assign public_papers = public_papers | push: paper -%}
+  {%- endif -%}
+{%- endfor -%}

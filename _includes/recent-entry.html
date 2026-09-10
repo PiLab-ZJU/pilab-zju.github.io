@@ -1,7 +1,11 @@
 {%- assign raw_date = include.date | append: '' -%}
 {%- if include.precision == 'month' -%}{%- assign raw_date = include.date | date: '%Y-%m' -%}{%- endif -%}
+{%- if include.precision == 'year' -%}{%- assign raw_date = include.date | date: '%Y' -%}{%- endif -%}
 {%- assign sort_date = raw_date -%}
-{%- if raw_date.size == 7 -%}
+{%- if raw_date.size == 4 -%}
+  {%- assign sort_date = raw_date | append: '-01-01' -%}
+  {%- assign display_date = raw_date -%}
+{%- elsif raw_date.size == 7 -%}
   {%- assign sort_date = raw_date | append: '-01' -%}
   {%- assign display_date = raw_date -%}
 {%- else -%}

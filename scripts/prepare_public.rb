@@ -25,6 +25,7 @@ files = %w[
   index.html 404.html team/index.html news/index.html papers/index.html projects/index.html
   docs/github-pages-deployment-plan.md docs/fix-assets-2026-09-09/asset-sources.json
   docs/design-review-2026-09-10.md
+  docs/source.md docs/paper-sync.md docs/brand-assets.md
 ]
 %w[.github _includes _layouts assets scripts].each do |directory|
   files.concat(Dir.glob(File.join(source, directory, "**", "*"), File::FNM_DOTMATCH)
@@ -33,6 +34,7 @@ files = %w[
 end
 files.reject! { |path| File.basename(path).start_with?(".") && path != ".gitignore" && path != ".ruby-version" }
 files.delete("assets/img/logo-preview.html")
+files.reject! { |path| path.include?("/__pycache__/") || path.end_with?(".pyc") }
 
 %w[_papers _news].each do |collection|
   Dir.glob(File.join(source, collection, "*.md")).each do |path|

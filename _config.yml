@@ -12,6 +12,7 @@ description: >-
 url: "https://pilab-zju.github.io"
 baseurl: ""
 lang: zh-CN
+paper_years: 3
 
 # ── 集合 ────────────────────────────────────────────
 collections:

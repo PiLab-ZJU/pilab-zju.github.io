@@ -22,6 +22,8 @@ bundle exec jekyll build         # 静态产物：_site/
 | 首页 | `index.html` |
 | 新闻 | `_news/*.md`，列表 `news/index.html` |
 | 论文 | `_papers/*.md`，列表 `papers/index.html`，详情 `_layouts/paper.html` |
+| 论文同步来源与工具 | `docs/source.md`、`scripts/sync_papers.py`；[使用说明](docs/paper-sync.md) |
+| 成员 Scholar 主页 | 从来源生成的 `_data/people_sources.yml` |
 | GitHub/HF 资源 | `_data/projects.yml` |
 | 导师、博士生、硕士生、科研伙伴、校友 | `_data/team.yml` |
 | 导航、介绍、联系方式 | `_data/settings.yml` |
@@ -32,7 +34,9 @@ bundle exec jekyll build         # 静态产物：_site/
 
 新内容建议先设 `published: false`，核实后改为 `true`。草稿不进入列表、计数、首页聚合或论文详情产物；历史占位样例已全部设为草稿。未填写该字段视为公开，因此不要直接复制样例后删除草稿状态。
 
-新增论文：创建 `_papers/<slug>.md`。作者、题名、出处和 DOI 优先核对出版方。日期使用**发表时间**，仅知道月份时加 `date_precision: month`，不要虚构具体日期。
+论文优先通过 [同步工具](docs/paper-sync.md) 从 Scholar 与 Crossref 获取，按 DOI、题名及作者去重。首页与 Papers 页面只展示近 3 个自然年的论文（当前为 2024–2026），范围由 `_config.yml` 的 `paper_years` 控制。同步脚本默认相同范围，保留人工编辑及草稿状态。
+
+人工补充时创建 `_papers/<slug>.md`。作者、题名、出处和 DOI 优先核对出版方；无 DOI 时保留可核实的 Scholar 来源链接。日期使用**发表时间**，仅知道月份时加 `date_precision: month`，仅知道年份时加 `date_precision: year`，不要虚构展示日期。
 
 ```yaml
 ---
@@ -67,13 +71,15 @@ summary: 一两句中文研究简介。
   tags: [Benchmark, LLM]
 ```
 
-首页自动合并**公开论文和项目**，按日期取最新 5 条。月份按该月首日排序、仍按月显示；项目更新与论文发表使用各自记录的日期。项目必须链接到具体仓库、模型或数据集。
+首页自动合并**近三年的公开论文和公开项目**，按日期取最新 5 条。仅知月份或年份时按该月/年首日排序，仍按原精度显示；项目更新与论文发表使用各自记录的日期。项目必须链接到具体仓库、模型或数据集。
 
 成员：在 `_data/team.yml` 维护。`students` 使用 `degree: 博士研究生` 或 `degree: 硕士研究生` 分组，填写姓名、入学年份、研究关键词及可选个人主页；`partners` 填写科研伙伴及 `role`；`alumni` 填写毕业时间、去向与可选岗位 `role`。校友 `grad` 使用带引号的 `"YYYY.MM"`，页面自动倒序。言鹏韦分别保留科研伙伴与校友记录。
 
 `photo` 缺失、空字符串或空格均使用姓名首字；网站照片填 `/assets/img/team/文件名.jpg`。2026-09-10 的成员资料已接入 6 位学生、3 位科研伙伴和 3 位校友，导师及 9 位成员照片使用最长边 640px 的网页版本；导师新照片为 `assets/img/team/jzr.jpg`。`team/members.md` 与 `team/` 下的原图属于本地资料，不进入公开源码导出或网站产物；后续内容更新以 `_data/team.yml` 为准。
 
 视觉风格以留白、文字链接和照片为主，使用系统字体，不依赖 Google Fonts。参考与调整见 [Bedford 风格复核](docs/design-review-2026-09-10.md)。
+
+成员 Scholar 主页在 `docs/source.md` 按姓名维护，运行同步后自动显示链接。GitHub、Hugging Face 与 Scholar 使用本地保存的官方图标，见 [平台标识来源](docs/brand-assets.md)。
 
 机构标识：使用 `logo` 路径；白色原版标识加 `logo_light: true`，页面以深灰显示。素材保留原文件，来源见 [素材记录](docs/fix-assets-2026-09-09/asset-sources.json)。
 

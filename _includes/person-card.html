@@ -7,5 +7,6 @@
   {% if member.role %}<p class="person-role">{{ member.role | escape }}</p>{% endif %}
   {% if member.year %}<div class="person-meta">{{ member.year }} 级</div>{% endif %}
   <div class="person-kw">{% for keyword in member.keywords %}<span class="tag">{{ keyword | escape }}</span>{% endfor %}</div>
+  {% include scholar-link.html person=member %}
   </div>
 </div>

@@ -36,9 +36,13 @@ Dir.mktmpdir("pilab-check-") do |directory|
   public_papers = site.collections["papers"].docs.reject { |p| p.data["published"] == false }
   public_papers.each do |paper|
     assert(paper.data["authors"].is_a?(Array) && !paper.data["authors"].empty?, "Missing authors: #{paper.basename}")
-    assert(paper.data["links"].to_a.any? { |link| link["url"].to_s.start_with?("https://doi.org/") }, "Missing DOI link: #{paper.basename}")
+    assert(paper.data["links"].to_a.any? { |link| link["url"].to_s.start_with?("https://doi.org/", "https://scholar.google.com/citations?") }, "Missing DOI or Scholar source link: #{paper.basename}")
   end
   team_page = File.read(File.join(production, "team/index.html"))
+  site.data.fetch("people_sources", {}).each do |name, sources|
+    next unless sources["scholar"]
+    assert(team_page.include?(CGI.escapeHTML(sources["scholar"])), "Missing Scholar link: #{name}")
+  end
   %w[students partners alumni].each do |section|
     site.data["team"].fetch(section, []).each do |member|
       next if member["published"] == false
@@ -65,10 +69,23 @@ Dir.mktmpdir("pilab-check-") do |directory|
       ]
       fixture.data["team"]["partners"] += [{"name" => "QA_HIDDEN_PARTNER", "published" => false}]
       fixture.data["team"]["alumni"] += [{"name" => "QA_HIDDEN_ALUMNUS", "published" => false, "grad" => "2099.06"}]
+      # Exercise the rolling year boundary independently of real publications.
+      fixture.collections["papers"].docs.each { |paper| paper.data["date"] = Time.utc(fixture.time.year - 4, 1, 1) }
+      [["QA_OLD_PAPER", -3], ["QA_FUTURE_PAPER", 1], ["QA_YEAR_PAPER", 0]].each_with_index do |(title, offset), position|
+        paper = fixture.collections["papers"].docs[position]
+        paper.data.merge!("title" => title, "date" => Time.utc(fixture.time.year + offset, 1, 1),
+          "date_precision" => "year", "published" => true)
+      end
     end
     home = CGI.unescapeHTML(File.read(File.join(destination, "index.html")))
     projects = File.read(File.join(destination, "projects/index.html"))
     team = File.read(File.join(destination, "team/index.html"))
+    papers = File.read(File.join(destination, "papers/index.html"))
+    %w[QA_OLD_PAPER QA_FUTURE_PAPER].each do |title|
+      assert(!home.include?(title) && !papers.include?(title), "Paper outside three-year window leaked: #{title}")
+    end
+    assert(papers.include?("QA_YEAR_PAPER"), "Current-year paper missing")
+    assert(home.include?("datetime=\"#{site.time.year}\""), "Year-only paper date precision lost")
     assert(home.include?("QA A | B + 中文"), "Special characters damaged recent entries")
     assert(home.index("QA_DAY") < home.index("QA A | B + 中文"), "Month/day sorting failed")
     assert(home.include?('datetime="2099-09"') && home.include?('datetime="2099-09-02"'), "Date precision lost")
@@ -81,4 +98,4 @@ Dir.mktmpdir("pilab-check-") do |directory|
     assert(team.include?("src=\"#{baseurl}/assets/img/team/advisor.jpg\" alt=\"丁_有效照片\""), "Valid avatar missing")
   end
 end
-puts "PASS: team members and groups, publication metadata, draft exclusion, avatars, aggregation, date precision and deployment paths"
+puts "PASS: team members and Scholar links, publication metadata, three-year window, draft exclusion, avatars, aggregation, date precision and deployment paths"

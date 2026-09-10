@@ -1,0 +1,6 @@
+{%- assign brand = include.brand -%}
+{%- if brand == 'github' or brand == 'huggingface' or brand == 'google-scholar' -%}
+{%- assign extension = '.svg' -%}
+{%- if brand == 'google-scholar' -%}{%- assign extension = '.ico' -%}{%- endif -%}
+<img class="brand-icon" src="{{ '/assets/img/brands/' | append: brand | append: extension | relative_url }}" width="20" height="20" alt="" aria-hidden="true">
+{%- endif -%}
