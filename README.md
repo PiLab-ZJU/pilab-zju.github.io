@@ -71,15 +71,17 @@ summary: 一两句中文研究简介。
 
 成员：在 `_data/team.yml` 维护。`students` 使用 `degree: 博士研究生` 或 `degree: 硕士研究生` 分组，填写姓名、入学年份、研究关键词及可选个人主页；`partners` 填写科研伙伴及 `role`；`alumni` 填写毕业时间、去向与可选岗位 `role`。校友 `grad` 使用带引号的 `"YYYY.MM"`，页面自动倒序。言鹏韦分别保留科研伙伴与校友记录。
 
-`photo` 缺失、空字符串或空格均使用姓名首字；网站照片填 `/assets/img/team/文件名.jpg`。2026-09-10 的成员资料已接入 6 位学生、3 位科研伙伴和 3 位校友，9 张照片使用最长边 640px 的网页版本。`team/members.md` 与 `team/` 下的原图属于本地资料，不进入公开源码导出或网站产物；后续内容更新以 `_data/team.yml` 为准。
+`photo` 缺失、空字符串或空格均使用姓名首字；网站照片填 `/assets/img/team/文件名.jpg`。2026-09-10 的成员资料已接入 6 位学生、3 位科研伙伴和 3 位校友，导师及 9 位成员照片使用最长边 640px 的网页版本；导师新照片为 `assets/img/team/jzr.jpg`。`team/members.md` 与 `team/` 下的原图属于本地资料，不进入公开源码导出或网站产物；后续内容更新以 `_data/team.yml` 为准。
+
+视觉风格以留白、文字链接和照片为主，使用系统字体，不依赖 Google Fonts。参考与调整见 [Bedford 风格复核](docs/design-review-2026-09-10.md)。
 
 机构标识：使用 `logo` 路径；白色原版标识加 `logo_light: true`，页面以深灰显示。素材保留原文件，来源见 [素材记录](docs/fix-assets-2026-09-09/asset-sources.json)。
 
 ## 发布
 
-目标仓库为 `PiLab-ZJU/pilab-zju.github.io`，目标网址为 `https://pilab-zju.github.io`。`_config.yml` 已配置该 `url`，根站点的 `baseurl` 留空；页面会生成 canonical 与 Open Graph URL。实际线上发布状态见 [部署方案与进度](docs/github-pages-deployment-plan.md)。
+网站已于 **2026-09-10 上线**：[pilab-zju.github.io](https://pilab-zju.github.io/)。公开仓库为 [PiLab-ZJU/pilab-zju.github.io](https://github.com/PiLab-ZJU/pilab-zju.github.io)。`_config.yml` 已配置正式 `url`，根站点的 `baseurl` 留空；页面会生成 canonical 与 Open Graph URL。部署记录见 [部署方案与进度](docs/github-pages-deployment-plan.md)。
 
-工作流 `.github/workflows/deploy-pages.yml` 在 PR 上运行检查和构建，在 `main` 更新或手动触发时发布。它使用 Ubuntu 24.04、`.ruby-version` 和 `Gemfile.lock` 中的版本，自行构建 Jekyll 4.4.1，再上传 `_site/`。Linux 平台已加入锁文件。仓库的 `Settings → Pages → Source` 需选择 `GitHub Actions`。本机可使用已验证的 SSH 远端 `git@github-pilab:PiLab-ZJU/pilab-zju.github.io.git` 推送；首次创建仓库和启用 Pages 需通过 GitHub 网页或具备管理权限的 API 完成。
+工作流 `.github/workflows/deploy-pages.yml` 在 PR 上运行检查和构建，在 `main` 更新或手动触发时发布。它使用 Ubuntu 24.04、`.ruby-version` 和 `Gemfile.lock` 中的版本，自行构建 Jekyll 4.4.1，再上传 `_site/`。Linux 安装、检查、构建及部署已在 GitHub Actions 实际通过。仓库的 `Settings → Pages → Source` 已设为 `GitHub Actions`。本机通过 SSH 远端 `git@github-pilab:PiLab-ZJU/pilab-zju.github.io.git` 推送。
 
 首次公开前，先导出只含公开内容的源码：
 
@@ -92,17 +94,18 @@ JEKYLL_ENV=production bundle exec jekyll build
 python3 scripts/check_html.py _site
 ```
 
-只将导出的源码接入公开仓库。导出脚本过滤 `_papers/`、`_news/` 和 `_data/` 中 `published: false` 的记录，并只复制网站需要的文件；原始工作目录及草稿保留在本地。日后可直接在公开仓库维护已公开内容；如果继续使用含草稿的本地工作目录，应重新导出并审查差异后同步。
+只将导出的源码接入公开仓库。导出脚本过滤 `_papers/`、`_news/` 和 `_data/` 中 `published: false` 的记录，并只复制网站需要的文件；原始工作目录及草稿保留在本地。
+
+当前本机的公开仓库检出位于项目目录下 `_private/github-pages/`，跟踪远端 `main`；项目根目录仍保存原始资料与草稿。后续在项目根目录修改内容后，重新导出到临时目录，将变更同步至公开检出并审查 `git diff`，运行上述检查，再提交和推送 `main`。若有删除或改名，也需同步删除公开检出中的旧文件。推送后在仓库 Actions 页面确认对应提交部署成功。也可以直接在公开仓库维护公开内容；使用其中一种方式后，及时同步另一份，避免覆盖更新。
 
 `published: false` 只控制网站展示，不能隐藏公开仓库内的源码或提交历史。`.gitignore` 也不会自动过滤 YAML 中的草稿记录。
 
-构建检查会阻止成员原稿、原图、字体样张、开发脚本、工具配置、`docs/` 和嵌套 `_site/` 进入网站。首发需要核对手机菜单、论文详情、404、正式 URL、外部链接和实际访客网络体验。上线公告在实际部署成功后再填写日期并公开。
+构建检查会阻止成员原稿、原图、字体样张、开发脚本、工具配置、`docs/` 和嵌套 `_site/` 进入网站。上线公告记录实际首次发布日期 2026-09-10。以后修改模板或资源后，应复查手机菜单、论文详情、404、正式 URL 和图片。
 
 ## 当前待补
 
 - 成员个人主页可选补充。
-- 会议摘要论文的在线发表时间，以及网站正式上线日期；两条目前保留为草稿。
-- 创建目标根站点仓库、启用 GitHub Pages，并完成首次线上部署验收；本机 SSH 身份已验证。
+- 会议摘要论文的在线发表时间；该论文目前保留为草稿。
 - 英文对应内容与语言切换，作为中文版本稳定后的下一阶段。
 
 发布步骤和实施进度见 [GitHub Pages 部署方案](docs/github-pages-deployment-plan.md)。

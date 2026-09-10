@@ -24,6 +24,7 @@ files = %w[
   .gitignore .ruby-version Gemfile Gemfile.lock README.md _config.yml
   index.html 404.html team/index.html news/index.html papers/index.html projects/index.html
   docs/github-pages-deployment-plan.md docs/fix-assets-2026-09-09/asset-sources.json
+  docs/design-review-2026-09-10.md
 ]
 %w[.github _includes _layouts assets scripts].each do |directory|
   files.concat(Dir.glob(File.join(source, directory, "**", "*"), File::FNM_DOTMATCH)

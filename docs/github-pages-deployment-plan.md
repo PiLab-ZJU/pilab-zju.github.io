@@ -2,24 +2,28 @@
 
 记录日期：2026-09-10  
 项目检查基线：2026-09-09  
-状态：目标公开仓库已创建且启用了 Pages，SSH 已验证为 PiLab-ZJU；正在进行首次推送与线上部署验证。
+状态：已于 2026-09-10 正式上线，[访问网站](https://pilab-zju.github.io/)。公开仓库与 GitHub Actions 自动部署均已启用。
 
 ## 2026-09-10 实施进度
 
 - 根据 `team/members.md` 接入 3 位博士研究生、3 位硕士研究生、3 位科研伙伴和 3 位校友，更新研究方向、职务与毕业去向。
-- 将 9 张成员照片生成最长边 640px 的网站版本，存放于 `assets/img/team/`；史宇飞使用实际提供的 `syf.png`，言鹏韦新补充的 `ypw.jpg` 已接入。
+- 将导师及 9 位成员照片生成最长边 640px 的网站版本，存放于 `assets/img/team/`；史宇飞使用实际提供的 `syf.png`，言鹏韦的 `ypw.jpg` 和导师新提供的 `jzr.jpg` 已接入。
 - 团队页按学位分组，科研伙伴展示职务，校友展示单位和岗位；桌面、390px 与 320px 窄屏检查及手机菜单交互通过。
 - 正式地址已配置为 `https://pilab-zju.github.io`，根路径 `baseurl` 留空。
 - `.github/workflows/deploy-pages.yml` 已接入内容检查、生产构建、产物检查和 Pages 自动发布；PR 只检查，`main` 才部署。
-- 根据 RubyGems 官方平台元数据补齐 Linux GNU 版本的 `ffi`、`google-protobuf`、`sass-embedded` 及其校验值，并补齐原锁文件内其余 gem 的 SHA-256，修复空校验值导致冻结安装失败的问题。Mac 冻结模式下的全部检查通过，两个平台的锁定依赖关系完整；Linux runner 的实际安装与构建需在首次 Actions 运行时验证。
+- 根据 RubyGems 官方平台元数据补齐 Linux GNU 版本的 `ffi`、`google-protobuf`、`sass-embedded` 及其校验值，并补齐原锁文件内其余 gem 的 SHA-256，修复空校验值导致冻结安装失败的问题。Mac 冻结模式检查及 GitHub Ubuntu 24.04 runner 的实际安装、检查和构建均已通过。
 - 网站构建排除成员资料原稿、原始照片、字体样张、开发脚本和本地工具配置；新增检查防止这些文件被发布。
 - `scripts/prepare_public.rb` 可导出公开源码，过滤论文、新闻和 YAML 数据中的草稿，保留本地原稿。首次发布应使用该导出结果。
-- 导出的公开源码已通过冻结依赖检查、生产构建、14 页链接与正式 canonical 检查，且确认不含草稿或成员原稿。可上传的源码包保存在本地 `_private/pilab-pages-source-2026-09-10.tar.gz`，解压后包含 Pages 工作流，不包含 `_site/`。
-- 当前本地检查覆盖 14 个 HTML 页面，网站产物约 1.8 MB；Actions 工作流已通过 actionlint 语法检查。
+- 导出的公开源码已通过冻结依赖检查、生产构建、14 页链接与正式 canonical 检查，且确认不含草稿或成员原稿。首发日源码备份保存在本地 `_private/pilab-pages-source-2026-09-10.tar.gz`，包含 Pages 工作流，不包含 `_site/`；最新版本以远端 `main` 为准。
+- 当前构建检查覆盖 14 个 HTML 页面；Actions 工作流已通过 actionlint 语法检查。
 - 已核对旧仓库 `PiLab-ZJU/pilabzju_web` 启用了 Pages，旧站可访问；本次发布使用新建的 `PiLab-ZJU/pilab-zju.github.io`，不迁移旧仓库历史。
 - 本机 SSH 别名 `github-pilab` 已验证成功，GitHub 返回 `Hi PiLab-ZJU!`；目标根站点仓库现已创建为公开仓库，并启用了 Pages。
+- 首次提交为 `98d9d04448cf9552f6b04d43979bc70545841250`；[首次 Actions 运行](https://github.com/PiLab-ZJU/pilab-zju.github.io/actions/runs/34496935059) 的 build 与 deploy 均成功。
+- 正式域名下的首页、团队、新闻、项目、论文列表、8 篇论文详情和 `404.html` 共 14 页均返回 HTTP 200。成员原稿、原图、部署文档、开发脚本、草稿论文和不存在的路径均返回自定义 HTTP 404。
+- 上线新闻已按真实首次发布日期 2026-09-10 公开。
+- 对照 Bedford 首页与团队页精简了标题、链接、标签和成员布局，并使用系统字体，取消 Google Fonts 依赖；细节见 [风格复核记录](design-review-2026-09-10.md)。
 
-已进入首次推送与部署阶段。推送使用现有 SSH key，不需要额外登录 `gh`；创建仓库和修改 Pages 设置需要网页管理会话或具备对应权限的 API 登录，SSH key 本身不提供这些 API 权限。推送后检查 Actions 和线上页面；不得把本地检查通过记为线上发布成功。
+公开仓库的本地检出为项目下 `_private/github-pages/`，跟踪 `origin/main`。项目根目录保留本地原始材料和草稿；只同步公开导出的源码到该检出。推送使用现有 SSH key，无需额外登录 `gh`。以后推送 `main` 即自动部署，需在 [Actions 页面](https://github.com/PiLab-ZJU/pilab-zju.github.io/actions) 核对对应提交的执行结果。
 
 本机目标远端为 `git@github-pilab:PiLab-ZJU/pilab-zju.github.io.git`，SSH 配置如下，仅记录路径，不复制私钥内容：
 
@@ -31,7 +35,7 @@ Host github-pilab
   IdentitiesOnly yes
 ```
 
-如决定先复用旧仓库，可将已构建页面发布到 `https://pilab-zju.github.io/pilabzju_web/`；需要将构建 `baseurl` 设为 `/pilabzju_web` 并沿用旧仓库历史。这是备用发布路径，当前代码和源码包仍按根站点准备。
+旧仓库 `pilabzju_web` 保持原状。本次已采用根站点仓库 `pilab-zju.github.io`。
 
 ## 推荐路径
 
@@ -67,7 +71,7 @@ Host github-pilab
 
 仓库名为 `<owner>.github.io` 时，对应账号根站点；普通项目仓库对应 `https://<owner>.github.io/<repository>/`。GitHub Free 支持公开仓库使用 Pages。[GitHub Pages 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)
 
-账号公开页面还列有一个 `pilabzju_web` 仓库。实施前应核对它是否承载旧站、是否有需要保留的历史，以及目标根站点仓库是否已经存在；同时确认发布账号具有相应管理权限，再确定复用或新建仓库的方式。[PiLab-ZJU 账号页面](https://github.com/PiLab-ZJU)
+已核对账号的 `pilabzju_web` 仓库承载旧站。本次发布到新建的根站点仓库，旧仓库及历史保持原状。[PiLab-ZJU 账号页面](https://github.com/PiLab-ZJU)
 
 ## 2. 整理适合公开的源码和构建产物
 
@@ -141,21 +145,23 @@ baseurl: ""
 - canonical 和 Open Graph URL 使用正式地址，内部链接没有本地地址或错误的子目录前缀。
 - 草稿页面和开发文件无法通过网站路径访问。
 - 外部论文与项目链接可用。
-- 使用实际访客网络测试加载速度，包括 Google Fonts；如影响体验，再调整为本地字体资源或合适的系统字体方案。
+- 使用实际访客网络测试加载速度；当前已使用系统字体，不再请求 Google Fonts。
 
 成员资料可以在上线后逐步补齐；网站上线新闻应在站点实际可访问后填写真实日期，再改为公开。
 
 日常维护继续修改 Markdown/YAML，通过 PR 检查后合并到 `main` 自动发布。出现问题时回退相应提交并重新部署。同步更新 [README 发布说明](../README.md)，使新维护者可以按文档操作。
 
-## 实施待办
+## 实施完成情况
 
-- [ ] 核对发布账号权限、`pilabzju_web` 用途及目标根站点仓库状态。
+- [x] 核对发布账号权限、`pilabzju_web` 用途及目标根站点仓库状态。
 - [x] 确认公开源码范围，提供过滤草稿及本地开发文件的导出脚本。
 - [x] 补齐 Git 忽略规则及 Jekyll 发布排除规则。
 - [x] 补齐 Linux 依赖锁定并检查依赖关系。
-- [ ] 在 GitHub Actions 验证 Linux 构建环境。
+- [x] 在 GitHub Actions 验证 Linux 构建环境。
 - [x] 添加检查、构建和 Pages 自动部署工作流。
 - [x] 配置正式 `url`、`baseurl`，更新 README。
-- [ ] 接入 GitHub 仓库并启用 Pages。
-- [ ] 完成首次线上验收。
-- [ ] 按实际日期发布上线新闻。
+- [x] 接入 GitHub 仓库并启用 Pages。
+- [x] 验证正式网址、14 个页面和自定义 404，完成首次上线。
+- [x] 按实际日期发布上线新闻。
+
+后续持续观察：不同访客网络下的首次加载体验和外部站点可用性。本文记录的 HTTP 验收来自当前工作网络，不能代表所有访客网络。
