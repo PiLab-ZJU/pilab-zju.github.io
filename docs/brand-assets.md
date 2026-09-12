@@ -9,3 +9,7 @@
 | Google Scholar | `assets/img/brands/google-scholar.ico` | [Scholar 官方网站图标](https://scholar.google.com/favicon.ico) |
 
 统一通过 `_includes/brand-icon.html` 引用。图标旁有平台文字或链接的可访问名称，装饰图片的 `alt` 留空。首页、页脚、项目及论文资源链接共用官方 GitHub/Hugging Face 素材；团队 Scholar 图标通过 `_includes/scholar-link.html` 按姓名关联来源。
+
+## 合作机构标识补充
+
+2026-09-12：江苏大学附属医院使用[医院官网](https://www.jdfy.cn/)页首的[官方 PNG 标识](https://www.jdfy.cn/template/default/index/images/logo.png)，原文件保存为 `assets/img/collab/ujs-hospital.png`。合作机构名称由用户确认。

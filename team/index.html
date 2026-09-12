@@ -37,19 +37,6 @@ description: PiLab 的团队成员——导师、博士后、博士研究生、�
       </div>
     </div>
 
-    {% assign postdocs = site.data.team.postdocs | where_exp: "m", "m.published != false" %}
-    {% if postdocs.size > 0 %}
-    <div class="team-block">
-      <h2 class="team-block-title">博士后 <span class="en">Postdoctoral Researchers · {{ postdocs | size }}</span></h2>
-      <div class="people-grid">
-        {% include sort-people.html people=postdocs field='year' %}
-        {% for member in sorted_people %}
-        {% include person-card.html person=member %}
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-
     {% assign students = site.data.team.students | where_exp: "m", "m.published != false" %}
     {% assign student_groups = students | group_by: 'degree' %}
     {% for group in student_groups %}
@@ -63,6 +50,19 @@ description: PiLab 的团队成员——导师、博士后、博士研究生、�
       </div>
     </div>
     {% endfor %}
+
+    {% assign postdocs = site.data.team.postdocs | where_exp: "m", "m.published != false" %}
+    {% if postdocs.size > 0 %}
+    <div class="team-block">
+      <h2 class="team-block-title">博士后 <span class="en">Postdoctoral Researchers · {{ postdocs | size }}</span></h2>
+      <div class="people-grid">
+        {% include sort-people.html people=postdocs field='year' %}
+        {% for member in sorted_people %}
+        {% include person-card.html person=member %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
 
     {% assign partners = site.data.team.partners | where_exp: "m", "m.published != false" %}
     {% if partners.size > 0 %}
