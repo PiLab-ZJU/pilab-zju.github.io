@@ -13,3 +13,5 @@
 ## 合作机构标识补充
 
 2026-09-12：江苏大学附属医院使用[医院官网](https://www.jdfy.cn/)页首的[官方 PNG 标识](https://www.jdfy.cn/template/default/index/images/logo.png)，原文件保存为 `assets/img/collab/ujs-hospital.png`。合作机构名称由用户确认。
+
+合作机构后续调整为江苏大学，使用[江苏大学官网原版 PNG](https://www.ujs.edu.cn/images/logo.png)，保存为 `assets/img/collab/ujs.png`。原图为白色标识，使用 `logo_light: true` 在浅色背景上显示。

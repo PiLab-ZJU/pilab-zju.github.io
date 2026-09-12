@@ -7,10 +7,11 @@
   en: Ant Group
   url: https://www.antgroup.com
   logo: "/assets/img/collab/ant.svg"
-- name: 江苏大学附属医院
-  en: Affiliated Hospital of Jiangsu University
-  url: https://www.jdfy.cn/
-  logo: "/assets/img/collab/ujs-hospital.png"
+- name: 江苏大学
+  en: Jiangsu University
+  url: https://www.ujs.edu.cn/
+  logo: "/assets/img/collab/ujs.png"
+  logo_light: true
 - name: 南洋理工大学
   en: Nanyang Technological University
   url: https://www.ntu.edu.sg
