@@ -188,8 +188,7 @@ img { max-width: 100%; }
 .collab-card:hover { color: var(--blue); }
 .collab-name { font-weight: 700; font-size: 16px; }
 .collab-en { font-size: 12px; color: var(--ink-3); letter-spacing: .02em; }
-.collab-card img { width: 140px; height: 42px; object-fit: contain; margin-bottom: 8px; filter: grayscale(1); opacity: .8; }
-.collab-card:hover img { filter: none; opacity: 1; }
+.collab-card img { width: 140px; height: 42px; object-fit: contain; margin-bottom: 8px; }
 .collab-card img.logo-light { filter: brightness(0); opacity: .65; }
 .collab-card img.logo-padded { transform: scale(1.5); }
 

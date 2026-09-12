@@ -10,8 +10,7 @@
 - name: 江苏大学
   en: Jiangsu University
   url: https://www.ujs.edu.cn/
-  logo: "/assets/img/collab/ujs.png"
-  logo_light: true
+  logo: "/assets/img/collab/ujs-color.png"
 - name: 南洋理工大学
   en: Nanyang Technological University
   url: https://www.ntu.edu.sg
@@ -24,14 +23,12 @@
 - name: 武汉大学
   en: Wuhan University
   url: https://www.whu.edu.cn
-  logo: "/assets/img/collab/whu.png"
-  logo_light: true
+  logo: "/assets/img/collab/whu-1.png"
 - name: 北京大学
   en: Peking University
   url: https://www.pku.edu.cn
-  logo: "/assets/img/collab/pku.png"
+  logo: "/assets/img/collab/pku-color.png"
 - name: 华东师范大学
   en: East China Normal University
   url: https://www.ecnu.edu.cn
-  logo: "/assets/img/collab/ecnu.svg"
-  logo_light: true
+  logo: "/assets/img/collab/ecnu-color.png"
