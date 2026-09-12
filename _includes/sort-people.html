@@ -1,0 +1,3 @@
+{%- assign dated_people = include.people | where_exp: "person", "person[include.field] != nil" | sort: include.field | reverse -%}
+{%- assign undated_people = include.people | where_exp: "person", "person[include.field] == nil" -%}
+{%- assign sorted_people = dated_people | concat: undated_people -%}

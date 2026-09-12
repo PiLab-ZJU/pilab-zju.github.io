@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Team
-description: PiLab 的团队成员——导师、博士研究生、硕士研究生、科研伙伴与已毕业学生。
+description: PiLab 的团队成员——导师、博士后、博士研究生、硕士研究生、科研伙伴与已毕业学生。
 ---
 
 <div class="page-hero">
@@ -37,13 +37,27 @@ description: PiLab 的团队成员——导师、博士研究生、硕士研究�
       </div>
     </div>
 
+    {% assign postdocs = site.data.team.postdocs | where_exp: "m", "m.published != false" %}
+    {% if postdocs.size > 0 %}
+    <div class="team-block">
+      <h2 class="team-block-title">博士后 <span class="en">Postdoctoral Researchers · {{ postdocs | size }}</span></h2>
+      <div class="people-grid">
+        {% include sort-people.html people=postdocs field='year' %}
+        {% for member in sorted_people %}
+        {% include person-card.html person=member %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
     {% assign students = site.data.team.students | where_exp: "m", "m.published != false" %}
     {% assign student_groups = students | group_by: 'degree' %}
     {% for group in student_groups %}
     <div class="team-block">
       <h2 class="team-block-title">{{ group.name | default: '在读学生' | escape }} <span class="en">{% if group.name == '博士研究生' %}PhD Students{% elsif group.name == '硕士研究生' %}Master’s Students{% else %}Students{% endif %} · {{ group.items | size }}</span></h2>
       <div class="people-grid">
-        {% for member in group.items %}
+        {% include sort-people.html people=group.items field='year' %}
+        {% for member in sorted_people %}
         {% include person-card.html person=member %}
         {% endfor %}
       </div>
@@ -55,7 +69,8 @@ description: PiLab 的团队成员——导师、博士研究生、硕士研究�
     <div class="team-block">
       <h2 class="team-block-title">科研伙伴 <span class="en">Research Partners · {{ partners | size }}</span></h2>
       <div class="people-grid">
-        {% for member in partners %}
+        {% include sort-people.html people=partners field='year' %}
+        {% for member in sorted_people %}
         {% include person-card.html person=member %}
         {% endfor %}
       </div>
@@ -66,11 +81,12 @@ description: PiLab 的团队成员——导师、博士研究生、硕士研究�
     <div class="team-block">
       <h2 class="team-block-title">已毕业学生 <span class="en">Alumni</span></h2>
       <div class="alumni-list">
-        {% assign alumni = site.data.team.alumni | where_exp: "member", "member.published != false" | sort: 'grad' | reverse %}
-        {% for a in alumni %}
+        {% assign alumni = site.data.team.alumni | where_exp: "member", "member.published != false" %}
+        {% include sort-people.html people=alumni field='grad' %}
+        {% for a in sorted_people %}
         <div class="alumni-row">
-          <span class="alumni-name">{{ a.name }} {% include scholar-link.html person=a %}</span>
-          <span class="alumni-grad">{{ a.grad }} 毕业</span>
+          <div class="alumni-person"><div class="alumni-avatar">{% include avatar.html person=a %}</div><span class="alumni-name">{{ a.name | escape }}{% if a.note %}<span class="alumni-note">（{{ a.note | escape }}）</span>{% endif %}</span></div>
+          <span class="alumni-grad">{% if a.grad %}{{ a.grad }} 毕业{% endif %}</span>
           <div class="alumni-dest">{{ a.destination | escape }}{% if a.role %}<span class="alumni-role">{{ a.role | escape }}</span>{% endif %}</div>
         </div>
         {% endfor %}

@@ -40,10 +40,11 @@ Dir.mktmpdir("pilab-check-") do |directory|
   end
   team_page = File.read(File.join(production, "team/index.html"))
   site.data.fetch("people_sources", {}).each do |name, sources|
-    next unless sources["scholar"]
+    active_names = [site.data["team"]["advisor"], *%w[students partners postdocs].flat_map { |section| site.data["team"].fetch(section, []) }].reject { |m| m["published"] == false }.map { |m| m["name"] }
+    next unless sources["scholar"] && active_names.include?(name)
     assert(team_page.include?(CGI.escapeHTML(sources["scholar"])), "Missing Scholar link: #{name}")
   end
-  %w[students partners alumni].each do |section|
+  %w[students partners postdocs alumni].each do |section|
     site.data["team"].fetch(section, []).each do |member|
       next if member["published"] == false
       assert(team_page.include?(CGI.escapeHTML(member["name"])), "Missing team member: #{member['name']}")
@@ -51,6 +52,18 @@ Dir.mktmpdir("pilab-check-") do |directory|
         assert(team_page.include?(CGI.escapeHTML(member["role"])), "Missing team role: #{member['name']}")
       end
     end
+  end
+
+  alumni_html = team_page.split('<div class="alumni-list">', 2).last.split('<!-- ============ 加入我们', 2).first
+  assert(!alumni_html.include?('<a '), "Alumni personal links must be hidden")
+  site.data["team"].fetch("alumni", []).each do |member|
+    next if member["published"] == false || member["photo"].to_s.strip.empty?
+    assert(alumni_html.include?("src=\"#{member['photo']}\""), "Missing alumni photo: #{member['name']}")
+  end
+  site.data["team"]["students"].group_by { |m| m["degree"] }.each_value do |members|
+    dated = members.reject { |m| m["published"] == false || !m["year"] }.sort_by { |m| -m["year"] }
+    positions = dated.map { |m| team_page.index(CGI.escapeHTML(m["name"])) }
+    assert(positions == positions.sort, "Students must be newest first")
   end
 
   ["", "/qa"].each_with_index do |baseurl, index|

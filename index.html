@@ -123,11 +123,11 @@ layout: default
     </div>
     <div class="collab-grid">
       {% for c in site.data.collaborations %}
-      <a class="collab-card" href="{{ c.url }}" target="_blank" rel="noopener">
+      {% if c.url %}<a class="collab-card" href="{{ c.url }}" target="_blank" rel="noopener">{% else %}<div class="collab-card">{% endif %}
         {% assign logo = c.logo | default: '' | strip %}{% if logo != "" %}<img class="{% if c.logo_light %}logo-light{% endif %} {% if c.logo_padded %}logo-padded{% endif %}" src="{{ logo | relative_url }}" alt="" loading="lazy" decoding="async">{% endif %}
         <span class="collab-name">{{ c.name }}</span>
         <span class="collab-en">{{ c.en }}</span>
-      </a>
+      {% if c.url %}</a>{% else %}</div>{% endif %}
       {% endfor %}
     </div>
   </div>

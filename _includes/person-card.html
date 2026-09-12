@@ -5,6 +5,7 @@
   <div class="person-info">
   <h3 class="person-name">{% if homepage != '' %}<a href="{% include url.html url=homepage %}" target="_blank" rel="noopener">{{ member.name | escape }}</a>{% else %}{{ member.name | escape }}{% endif %}</h3>
   {% if member.role %}<p class="person-role">{{ member.role | escape }}</p>{% endif %}
+  {% if member.destination %}<p class="person-role">去向：{{ member.destination | escape }}</p>{% endif %}
   {% if member.year %}<div class="person-meta">{{ member.year }} 级</div>{% endif %}
   <div class="person-kw">{% for keyword in member.keywords %}<span class="tag">{{ keyword | escape }}</span>{% endfor %}</div>
   {% include scholar-link.html person=member %}

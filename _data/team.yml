@@ -13,7 +13,7 @@ advisor:
     url: https://person.zju.edu.cn/0020027
   - label: Email
     url: mailto:jiangzhuoren@zju.edu.cn
-partners:
+postdocs:
 - name: 言鹏韦
   name_en: Pengwei Yan
   role: 企业联合培养博士后
@@ -22,7 +22,9 @@ partners:
   - 大语言模型
   - AI4Med
   homepage: ''
+partners:
 - name: 姚汝婧
+  destination: NTU 博后
   role: Research Scientist
   photo: "/assets/img/team/yrj.jpg"
   keywords:
@@ -31,7 +33,8 @@ partners:
   - 隐私保护
   homepage: ''
 - name: 史宇飞
-  role: Research Associate
+  destination: NTU 博士
+  role: Research Assistant
   photo: "/assets/img/team/syf.jpg"
   keywords:
   - 大模型
@@ -88,14 +91,18 @@ students:
   homepage: ''
 alumni:
 - name: 林田谦谨
+  note: 合作指导
+  photo: "/assets/img/team/ltqj.jpg"
   grad: '2026.06'
   destination: 阿里巴巴 ATH Token Foundry 事业部
   role: AIGC 算法工程师
 - name: 言鹏韦
+  photo: "/assets/img/team/ypw.jpg"
   grad: '2026.06'
   destination: 蚂蚁集团蚂蚁健康事业部（蚂蚁星）
   role: MedLLM 算法工程师
 - name: 汪子航
+  photo: "/assets/img/team/wzh.jpg"
   grad: '2024.06'
   destination: 一线城市公职单位
 join:
