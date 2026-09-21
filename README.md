@@ -75,7 +75,7 @@ summary: 一两句中文研究简介。
 
 成员：在 `_data/team.yml` 维护。`students` 使用 `degree: 博士研究生` 或 `degree: 硕士研究生` 分组，填写姓名、入学年份、研究关键词及可选个人主页；`partners` 填写科研伙伴及 `role`；`alumni` 填写毕业时间、去向与可选岗位 `role`。博士后在 `postdocs` 单独维护，言鹏韦分别保留博士后与校友记录。学生、博士后、科研伙伴按 `year` 倒序，校友按带引号的 `grad: "YYYY.MM"` 倒序，无时间记录置于末尾。科研伙伴可用 `destination` 补充去向。校友展示 `photo` 照片及可选 `note` 姓名备注，不展示个人链接。
 
-`photo` 缺失、空字符串或空格均使用姓名首字；网站照片填 `/assets/img/team/文件名.jpg`。2026-09-10 的成员资料已接入 6 位学生、3 位科研伙伴和 3 位校友，导师及 9 位成员照片使用最长边 640px 的网页版本；导师新照片为 `assets/img/team/jzr.jpg`。`team/members.md` 与 `team/` 下的原图属于本地资料，不进入公开源码导出或网站产物；后续内容更新以 `_data/team.yml` 为准。
+`photo` 缺失、空字符串或空格均使用姓名首字；网站照片填 `/assets/img/team/文件名.jpg`。成员照片通常使用最长边 640px 的网页版本；为保证包易云照片在 100×112 的成员卡中居中，网页版本已预裁为 25:28 的 450×504。导师新照片为 `assets/img/team/jzr.jpg`。`team/members.md` 与 `team/` 下的原图属于本地资料，不进入公开源码导出或网站产物；后续内容更新以 `_data/team.yml` 为准。
 
 视觉风格以留白、文字链接和照片为主，使用系统字体，不依赖 Google Fonts。参考与调整见 [Bedford 风格复核](docs/design-review-2026-09-10.md)。
 
