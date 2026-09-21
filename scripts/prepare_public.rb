@@ -23,7 +23,7 @@ end
 files = %w[
   .gitignore .ruby-version Gemfile Gemfile.lock README.md _config.yml
   index.html 404.html team/index.html news/index.html papers/index.html projects/index.html
-  docs/github-pages-deployment-plan.md docs/fix-assets-2026-09-09/asset-sources.json
+  docs/github-pages-deployment-plan.md docs/maintenance.md docs/fix-assets-2026-09-09/asset-sources.json
   docs/design-review-2026-09-10.md
   docs/source.md docs/paper-sync.md docs/brand-assets.md
 ]
