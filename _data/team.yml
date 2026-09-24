@@ -1,114 +1,111 @@
----
+# 团队信息 —— 增量维护：直接在对应分区追加/修改条目
+# 学生照片放到 assets/img/team/ 下并把 photo 写成路径；没有照片就用首字母占位（photo 留空即可）
+
 advisor:
   name: 蒋卓人
   name_en: Zhuoren Jiang
   title: 长聘副教授 · 博士生导师
   role: 浙江大学信息资源管理研究所所长
-  photo: "/assets/img/team/jzr.jpg"
+  photo: /assets/img/team/jzr.jpg
   photo_source: 用户提供，2026-09-10 更新
-  bio: 博士，浙江大学公共管理学院长聘副教授、博士生导师，浙江大学信息资源管理研究所所长。 研究方向为信息资源管理、数字治理与人工智能，致力于以大语言模型、图学习等方法
+  bio: >-
+    博士，浙江大学公共管理学院长聘副教授、博士生导师，浙江大学信息资源管理研究所所长。
+    研究方向为信息资源管理、数字治理与人工智能，致力于以大语言模型、图学习等方法
     挖掘公共信息的价值，相关成果发表于 AAAI、IP&M、PNAS Nexus 等国际期刊与会议。
   links:
-  - label: 浙大主页
-    url: https://person.zju.edu.cn/0020027
-  - label: Email
-    url: mailto:jiangzhuoren@zju.edu.cn
+    - { label: 浙大主页, url: "https://person.zju.edu.cn/0020027" }
+    - { label: Email, url: "mailto:jiangzhuoren@zju.edu.cn" }
+
 postdocs:
-- name: 言鹏韦
-  name_en: Pengwei Yan
-  role: 企业联合培养博士后
-  photo: "/assets/img/team/ypw.jpg"
-  keywords:
-  - 大语言模型
-  - AI4Med
-  homepage: ''
+  - name: 言鹏韦
+    name_en: Pengwei Yan
+    role: 企业联合培养博士后
+    photo: /assets/img/team/ypw.jpg
+    keywords: [大语言模型, AI4Med]
+    homepage: ""
+
 partners:
-- name: 姚汝婧
-  destination: NTU 博后
-  role: Research Scientist
-  photo: "/assets/img/team/yrj.jpg"
-  keywords:
-  - 大模型
-  - 数据挖掘
-  - 隐私保护
-  homepage: ''
-- name: 史宇飞
-  destination: NTU 博士
-  role: Research Assistant
-  photo: "/assets/img/team/syf.jpg"
-  keywords:
-  - 大模型
-  - 自然语言处理
-  - 强化学习
-  homepage: ''
+  - name: 姚汝婧
+    destination: NTU 博后
+    role: Research Scientist
+    photo: /assets/img/team/yrj.jpg
+    keywords: [大模型, 数据挖掘, 隐私保护]
+    homepage: ""
+  - name: 史宇飞
+    destination: NTU 博士
+    role: Research Assistant
+    photo: /assets/img/team/syf.jpg
+    keywords: [大模型, 自然语言处理, 强化学习]
+    homepage: ""
+  - name: 吴贝蓓
+    photo: /assets/img/team/wbb.jpg
+    keywords: [计算社会科学]
+    homepage: ""
+    homepage: ""
+
 students:
-- name: 袁伟康
-  degree: 博士研究生
-  year: 2022
-  photo: "/assets/img/team/ywk.jpg"
-  keywords:
-  - 计算社会科学
-  - 知识服务
-  homepage: ''
-- name: 林晨曦
-  degree: 博士研究生
-  year: 2024
-  photo: "/assets/img/team/lcx.jpg"
-  keywords:
-  - 计算社会科学
-  - AI for Social Science
-  homepage: ''
-- name: 张予捷
-  degree: 博士研究生
-  year: 2026
-  photo: "/assets/img/team/zyj.jpg"
-  keywords:
-  - 计算社会科学
-  - 个性化
-  homepage: ''
-- name: 包易云
-  degree: 硕士研究生
-  year: 2026
-  photo: "/assets/img/team/byy.jpg"
-  keywords:
-  - 计算社会科学
-  homepage: ''
-- name: 王雯琪
-  degree: 硕士研究生
-  year: 2025
-  photo: "/assets/img/team/wwq.jpg"
-  keywords:
-  - 人机交互
-  - 用户行为研究
-  homepage: ''
-- name: 张锐涛
-  degree: 硕士研究生
-  year: 2024
-  photo: "/assets/img/team/zrt.jpg"
-  keywords:
-  - 社交媒体
-  - 算法治理
-  homepage: ''
+  - name: 袁伟康
+    degree: 博士研究生
+    year: 2022
+    photo: /assets/img/team/ywk.jpg
+    keywords: [计算社会科学, 知识服务]
+    homepage: ""
+  - name: 林晨曦
+    degree: 博士研究生
+    year: 2024
+    photo: /assets/img/team/lcx.jpg
+    keywords: [计算社会科学, AI for Social Science]
+    homepage: ""
+  - name: 张予捷
+    degree: 博士研究生
+    year: 2026
+    photo: /assets/img/team/zyj.jpg
+    keywords: [计算社会科学, 个性化]
+    homepage: ""
+  - name: 包易云
+    degree: 硕士研究生
+    year: 2026
+    photo: /assets/img/team/byy.jpg
+    keywords: [计算社会科学]
+    homepage: ""
+  - name: 王雯琪
+    degree: 硕士研究生
+    year: 2025
+    photo: /assets/img/team/wwq.jpg
+    keywords: [人机交互, 用户行为研究]
+    homepage: ""
+  - name: 张锐涛
+    degree: 硕士研究生
+    year: 2024
+    photo: /assets/img/team/zrt.jpg
+    keywords: [社交媒体, 算法治理]
+    homepage: ""
+
+# 已毕业学生（按毕业时间从近到远排序）
 alumni:
-- name: 林田谦谨
-  note: 合作指导
-  photo: "/assets/img/team/ltqj.jpg"
-  grad: '2026.06'
-  destination: 阿里巴巴 ATH Token Foundry 事业部
-  role: AIGC 算法工程师
-- name: 言鹏韦
-  photo: "/assets/img/team/ypw.jpg"
-  grad: '2026.06'
-  destination: 蚂蚁集团蚂蚁健康事业部（蚂蚁星）
-  role: MedLLM 算法工程师
-- name: 汪子航
-  photo: "/assets/img/team/wzh.jpg"
-  grad: '2024.06'
-  destination: 一线城市公职单位
+  - name: 林田谦谨
+    note: 合作指导
+    photo: /assets/img/team/ltqj.jpg
+    grad: "2026.06"
+    destination: 阿里巴巴 ATH Token Foundry 事业部
+    role: AIGC 算法工程师
+  - name: 言鹏韦
+    photo: /assets/img/team/ypw.jpg
+    grad: "2026.06"
+    destination: 蚂蚁集团蚂蚁健康事业部（蚂蚁星）
+    role: MedLLM 算法工程师
+  - name: 汪子航
+    photo: /assets/img/team/wzh.jpg
+    grad: "2024.06"
+    destination: 一线城市公职单位
+
+# 招生/加入我们（team 页 #join 锚点）
 join:
-  intro: 我们长期欢迎对「AI × 社会科学」交叉方向感兴趣的同学加入。 无论你未来走向学界还是业界，实验室都会提供同等的支持与训练。
+  intro: >-
+    我们长期欢迎对「AI × 社会科学」交叉方向感兴趣的同学加入。
+    无论你未来走向学界还是业界，实验室都会提供同等的支持与训练。
   points:
-  - 研究方向：大语言模型、图学习、社会计算、数字治理（欢迎计算机、信息管理、公共管理等背景）
-  - 研究生：请通过浙江大学研究生招生系统报考信息资源管理专业，欢迎提前邮件联系
-  - 本科生：欢迎加入科研训练 / 毕业设计，请附简历与成绩单邮件联系
+    - 研究方向：大语言模型、图学习、社会计算、数字治理（欢迎计算机、信息管理、公共管理等背景）
+    - 研究生：请通过浙江大学研究生招生系统报考信息资源管理专业，欢迎提前邮件联系
+    - 本科生：欢迎加入科研训练 / 毕业设计，请附简历与成绩单邮件联系
   email: jiangzhuoren@zju.edu.cn
