@@ -32,12 +32,14 @@ partners:
     keywords: [大模型, 数据挖掘, 隐私保护]
     homepage: ""
   - name: 史宇飞
-    destination: NTU 博士
+    destination: NTU 博士生
     role: Research Assistant
     photo: /assets/img/team/syf.jpg
     keywords: [大模型, 自然语言处理, 强化学习]
     homepage: ""
   - name: 吴贝蓓
+    destination: 浙大博士生
+    role: Research Assistant
     photo: /assets/img/team/wbb.jpg
     keywords: [计算社会科学]
     homepage: ""
